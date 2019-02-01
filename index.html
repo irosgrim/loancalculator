@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Questrial"
+      rel="stylesheet"
+    />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div id="app" class="frame">
+      <div class="monthly-cost">
+        <div class="monthly-cost-label">
+          <!-- monthlyCostLabel -->
+          <h2>{{ labels.monthlyCostLabel }}</h2>
+        </div>
+        <div class="monthly-cost-value">
+          <!-- monthlyCost + monthlyCostSuffix -->
+          <h1>{{ monthlyCostTotal }} {{ labels.monthlyCostSuffix }}</h1>
+        </div>
+      </div>
+      <div class="amount">
+        <div class="amount-label">
+          <!-- loanAmountLabel -->
+          <h2>{{ labels.loanAmountLabel }}</h2>
+        </div>
+        <div class="row">
+          <button class="calculator-button" v-on:click="decreaseAmountToLoan">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="3">
+                <path
+                  fill="none"
+                  fill-rule="nonzero"
+                  stroke="#FFF"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="M1 1.5h15"
+                />
+              </svg>
+            </span>
+          </button>
+
+          <input
+            class="amount-value"
+            v-model.number="loanAmount"
+            v-on:change="calculateMonthlyCost"
+            type="number"
+          />
+
+          <button class="calculator-button" v-on:click="increaseAmountToLoan">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17">
+                <path
+                  fill="none"
+                  stroke="#FFF"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="M1 8.5h15M8.5 1v15"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <!-- repaymentLabel -->
+          <h2>{{ labels.repaymentYearsLabel }}</h2>
+        </div>
+
+        <div class="row">
+          <button class="calculator-button" v-on:click="decreaseYears">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="3">
+                <path
+                  fill="none"
+                  fill-rule="nonzero"
+                  stroke="#FFF"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="M1 1.5h15"
+                />
+              </svg>
+            </span>
+          </button>
+
+          <input
+            class="repayment-value"
+            v-model.number="repaymentYears"
+            v-on:keyup.enter="calculateMonthlyCost"
+            type="number"
+          />
+          <button class="calculator-button" v-on:click="increaseYears">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17">
+                <path
+                  fill="none"
+                  stroke="#FFF"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="M1 8.5h15M8.5 1v15"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <button class="cta-button">
+        <!-- ctaLabel -->
+        <span>{{ labels.ctaLabel }}</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="18">
+            <g
+              fill="none"
+              fill-rule="nonzero"
+              stroke="#FFF"
+              stroke-linecap="round"
+              stroke-width="2"
+            >
+              <path stroke-linejoin="round" d="M27 1.343L32.657 7 27 12.657" />
+              <path d="M31 7H1" />
+            </g>
+          </svg>
+        </span>
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

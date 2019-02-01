@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Questrial', sans-serif;
+}
+
+h1 {
+    font-style: italic;
+    font-size: 2rem;
+    font-weight: lighter;
+    text-align: left;
+    color: #7C7A93;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+input {
+    height: 55px;
+    width: 217px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin: 0 15px 0 15px;
+    padding-left: 18px;
+    font-size: 1rem;
+    font-weight: 200;
+    transition: 0.5s;
+}
+
+button:focus {
+    outline: 0;
+    border: 1px solid #979797;
+}
+
+input:focus {
+    outline: 0;
+    border: 1px solid #979797;
+}
+
+button:hover {
+    background-color: #32B883;
+    transition: 0.5s;
+}
+
+.calculator-button {
+    border: none;
+    line-height: 1;
+    overflow: hidden;
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    font-size: 40px;
+    color: white;
+    background: #61d5a7;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: lighter;
+}
+
+.frame {
+    border: 1px solid #E3E3E4;
+    width: 380px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-style: italic;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #61d5a7;
+    height: 55px;
+    border-radius: 27px;
+    border: 0;
+    color: #ffffff;
+    cursor: pointer;
+}
