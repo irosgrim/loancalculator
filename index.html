@@ -49,7 +49,7 @@
           <input
             class="amount-value"
             v-model.number="loanAmount"
-            v-on:change="calculateMonthlyCost"
+            v-on:keyup.enter="calculateMonthlyCost"
             type="number"
           />
 
