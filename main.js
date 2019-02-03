@@ -55,6 +55,7 @@ Vue.component('cashform', {
   },
   computed: {
     amountToLoan: {
+      //when we call the method
       get: function() {
         if (this.amountInputActive) {
           return this.value.toString();
@@ -66,6 +67,7 @@ Vue.component('cashform', {
           );
         }
       },
+      //called when we change the value
       set: function(modifiedValue) {
         // make it number again
         let newValue = parseFloat(modifiedValue.replace(/[^\d\s]/g, ''));
@@ -73,6 +75,7 @@ Vue.component('cashform', {
         if (isNaN(newValue)) {
           newValue = 0;
         }
+        //show the new value
         this.$emit('input', newValue);
       }
     }
