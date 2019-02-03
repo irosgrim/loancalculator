@@ -1,3 +1,7 @@
+// I did the first version without currency formatting inside input and that was quite easy.
+// The challenge was currency formatting in the input boxes and that took a lot of time.
+// There are things that can be improoved, of course.
+
 Vue.component('cashform', {
   props: ['value'],
   template: `
