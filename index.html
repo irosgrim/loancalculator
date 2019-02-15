@@ -1,60 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="main.css" />
-    <title>calculator</title>
-  </head>
-  <body>
-    <div id="app" class="frame">
-      <div class="monthly-cost">
-        <div class="monthly-cost-label">
-          <!-- monthlyCostLabel -->
-          <h2>{{ labels.monthlyCostLabel }}</h2>
-        </div>
-        <div class="monthly-cost-value">
-          <!-- monthlyCost + monthlyCostSuffix -->
-          <h1>{{ monthlyCostTotal }} {{ labels.monthlyCostSuffix }}</h1>
-        </div>
-      </div>
-      <div class="amount">
-        <div class="amount-label">
-          <!-- loanAmountLabel -->
-          <h2>{{ labels.loanAmountLabel }}</h2>
-        </div>
-        <cashform v-model="amountToLoan"></cashform>
-      </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="main.css" />
+		<title>Loan Calculator V2</title>
+	</head>
 
-      <div>
-        <div>
-          <!-- repaymentLabel -->
-          <h2>{{ labels.repaymentYearsLabel }}</h2>
-        </div>
-        <yearsform v-model="yearsToLoan"></yearsform>
-      </div>
+	<body>
+		<div id="app" class="frame">
+			<div class="monthly-cost">
+				<div class="monthly-cost-label">
+					<h2>{{ labels.monthlyCostLabel }}</h2>
+				</div>
+				<div class="monthly-cost-value">
+					<h1>{{ monthlyCostTotal }} {{ labels.cashSuffix }}</h1>
+				</div>
+			</div>
 
-      <button class="cta-button">
-        <!-- ctaLabel -->
-        <span>{{ labels.ctaLabel }}</span>
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="13">
-            <g
-              fill="none"
-              fill-rule="nonzero"
-              stroke="#FFF"
-              stroke-linecap="round"
-              stroke-width="2"
-            >
-              <path stroke-linejoin="round" d="M27 1.343L32.657 7 27 12.657" />
-              <path d="M31 7H1" />
-            </g>
-          </svg>
-        </span>
-      </button>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="main.js"></script>
-  </body>
+			<div class="amount">
+				<div class="amount-label">
+					<h2>{{ labels.loanAmountLabel }}</h2>
+				</div>
+
+				<!-- cash input -->
+				<inpt-form
+					v-bind:min="5000"
+					v-bind:max="600000"
+					v-bind:step="5000"
+					v-bind:default="250000"
+					v-bind:suffix="labels.cashSuffix"
+					v-model="amountToLoan"
+				>
+				</inpt-form>
+			</div>
+
+			<div>
+				<div>
+					<h2>{{ labels.repaymentYearsLabel }}</h2>
+				</div>
+
+				<!-- years input-->
+				<inpt-form
+					v-bind:min="1"
+					v-bind:max="15"
+					v-bind:step="1"
+					v-bind:default="14"
+					v-bind:suffix="labels.yearsSuffix"
+					v-model="years"
+				>
+				</inpt-form>
+			</div>
+
+			<button class="cta-button">
+				<span> {{ labels.ctaLabel }}</span>
+				<span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="34" height="13">
+						<g
+							fill="none"
+							fill-rule="nonzero"
+							stroke="#FFF"
+							stroke-linecap="round"
+							stroke-width="2"
+						>
+							<path stroke-linejoin="round" d="M27 1.343L32.657 7 27 12.657" />
+							<path d="M31 7H1" />
+						</g>
+					</svg>
+				</span>
+			</button>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="main.js"></script>
+	</body>
 </html>
